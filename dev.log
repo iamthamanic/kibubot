@@ -1,0 +1,577 @@
+
+> kibubot@0.1.0 dev /Users/halteverbotsocialmacpro/Desktop/ars vivai/cursor/app_builds/kibubot/kibubot
+> next dev --turbopack --port 3001
+
+   ▲ Next.js 15.3.2 (Turbopack)
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.2.61:3001
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Compiled middleware in 213ms
+ ✓ Ready in 1595ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1163ms
+ GET / 307 in 1326ms
+ GET / 307 in 127ms
+ ○ Compiling /auth/login ...
+ ✓ Compiled /auth/login in 903ms
+ GET /auth/login?next=%2Fkibuboard 200 in 985ms
+ ✓ Compiled /favicon.ico in 219ms
+ GET /favicon.ico?favicon.45db1c09.ico 200 in 472ms
+ ✓ Compiled /auth/callback in 365ms
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at getAll (../../src/cookies.ts:89:51)
+    at Object.getItem (../../src/cookies.ts:326:33)
+    at getItemAsync (../../../src/lib/helpers.ts:129:30)
+    at SupabaseAuthClient.__loadSession (../../src/GoTrueClient.ts:1105:46)
+    at SupabaseAuthClient._useSession (../../src/GoTrueClient.ts:1063:32)
+    at SupabaseAuthClient._emitInitialSession (../../src/GoTrueClient.ts:1665:22)
+    at <unknown> (../../src/GoTrueClient.ts:1657:13)
+    at <unknown> (../../src/GoTrueClient.ts:995:25)
+    at SupabaseAuthClient.lockNoOp [as lock] (../../src/GoTrueClient.ts:127:15)
+    at SupabaseAuthClient._acquireLock (../../src/GoTrueClient.ts:989:24)
+    at <unknown> (../../src/GoTrueClient.ts:1656:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token.0')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async Object.getItem (../../src/cookies.ts:326:27)
+    at async getItemAsync (../../../src/lib/helpers.ts:129:16)
+    at async SupabaseAuthClient.__loadSession (../../src/GoTrueClient.ts:1105:27)
+    at async SupabaseAuthClient._useSession (../../src/GoTrueClient.ts:1063:21)
+    at async SupabaseAuthClient._emitInitialSession (../../src/GoTrueClient.ts:1665:11)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token.1')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async Object.getItem (../../src/cookies.ts:326:27)
+    at async getItemAsync (../../../src/lib/helpers.ts:129:16)
+    at async SupabaseAuthClient.__loadSession (../../src/GoTrueClient.ts:1105:27)
+    at async SupabaseAuthClient._useSession (../../src/GoTrueClient.ts:1063:21)
+    at async SupabaseAuthClient._emitInitialSession (../../src/GoTrueClient.ts:1665:11)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at getAll (../../src/cookies.ts:89:51)
+    at Object.getItem (../../src/cookies.ts:326:33)
+    at getItemAsync (../../../src/lib/helpers.ts:129:30)
+    at SupabaseAuthClient.__loadSession (../../src/GoTrueClient.ts:1105:46)
+    at SupabaseAuthClient._useSession (../../src/GoTrueClient.ts:1063:32)
+    at SupabaseAuthClient._emitInitialSession (../../src/GoTrueClient.ts:1665:22)
+    at <unknown> (../../src/GoTrueClient.ts:1657:13)
+    at <unknown> (../../src/GoTrueClient.ts:973:23)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token.2')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async Object.getItem (../../src/cookies.ts:326:27)
+    at async getItemAsync (../../../src/lib/helpers.ts:129:16)
+    at async SupabaseAuthClient.__loadSession (../../src/GoTrueClient.ts:1105:27)
+    at async SupabaseAuthClient._useSession (../../src/GoTrueClient.ts:1063:21)
+    at async SupabaseAuthClient._emitInitialSession (../../src/GoTrueClient.ts:1665:11)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token.0')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async Object.getItem (../../src/cookies.ts:326:27)
+    at async getItemAsync (../../../src/lib/helpers.ts:129:16)
+    at async SupabaseAuthClient.__loadSession (../../src/GoTrueClient.ts:1105:27)
+    at async SupabaseAuthClient._useSession (../../src/GoTrueClient.ts:1063:21)
+    at async SupabaseAuthClient._emitInitialSession (../../src/GoTrueClient.ts:1665:11)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token.3')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async Object.getItem (../../src/cookies.ts:326:27)
+    at async getItemAsync (../../../src/lib/helpers.ts:129:16)
+    at async SupabaseAuthClient.__loadSession (../../src/GoTrueClient.ts:1105:27)
+    at async SupabaseAuthClient._useSession (../../src/GoTrueClient.ts:1063:21)
+    at async SupabaseAuthClient._emitInitialSession (../../src/GoTrueClient.ts:1665:11)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token.1')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async Object.getItem (../../src/cookies.ts:326:27)
+    at async getItemAsync (../../../src/lib/helpers.ts:129:16)
+    at async SupabaseAuthClient.__loadSession (../../src/GoTrueClient.ts:1105:27)
+    at async SupabaseAuthClient._useSession (../../src/GoTrueClient.ts:1063:21)
+    at async SupabaseAuthClient._emitInitialSession (../../src/GoTrueClient.ts:1665:11)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token.4')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async Object.getItem (../../src/cookies.ts:326:27)
+    at async getItemAsync (../../../src/lib/helpers.ts:129:16)
+    at async SupabaseAuthClient.__loadSession (../../src/GoTrueClient.ts:1105:27)
+    at async SupabaseAuthClient._useSession (../../src/GoTrueClient.ts:1063:21)
+    at async SupabaseAuthClient._emitInitialSession (../../src/GoTrueClient.ts:1665:11)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token.2')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async Object.getItem (../../src/cookies.ts:326:27)
+    at async getItemAsync (../../../src/lib/helpers.ts:129:16)
+    at async SupabaseAuthClient.__loadSession (../../src/GoTrueClient.ts:1105:27)
+    at async SupabaseAuthClient._useSession (../../src/GoTrueClient.ts:1063:21)
+    at async SupabaseAuthClient._emitInitialSession (../../src/GoTrueClient.ts:1665:11)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token-code-verifier')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at getAll (../../src/cookies.ts:89:51)
+    at Object.getItem (../../src/cookies.ts:326:33)
+    at getItemAsync (../../../src/lib/helpers.ts:129:30)
+    at SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:611:43)
+    at <unknown> (../../src/GoTrueClient.ts:600:18)
+    at <unknown> (../../src/GoTrueClient.ts:973:23)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token.3')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async Object.getItem (../../src/cookies.ts:326:27)
+    at async getItemAsync (../../../src/lib/helpers.ts:129:16)
+    at async SupabaseAuthClient.__loadSession (../../src/GoTrueClient.ts:1105:27)
+    at async SupabaseAuthClient._useSession (../../src/GoTrueClient.ts:1063:21)
+    at async SupabaseAuthClient._emitInitialSession (../../src/GoTrueClient.ts:1665:11)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token-code-verifier.0')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async Object.getItem (../../src/cookies.ts:326:27)
+    at async getItemAsync (../../../src/lib/helpers.ts:129:16)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:611:24)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token.4')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async Object.getItem (../../src/cookies.ts:326:27)
+    at async getItemAsync (../../../src/lib/helpers.ts:129:16)
+    at async SupabaseAuthClient.__loadSession (../../src/GoTrueClient.ts:1105:27)
+    at async SupabaseAuthClient._useSession (../../src/GoTrueClient.ts:1063:21)
+    at async SupabaseAuthClient._emitInitialSession (../../src/GoTrueClient.ts:1665:11)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token-code-verifier.1')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async Object.getItem (../../src/cookies.ts:326:27)
+    at async getItemAsync (../../../src/lib/helpers.ts:129:16)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:611:24)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token-code-verifier.2')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async Object.getItem (../../src/cookies.ts:326:27)
+    at async getItemAsync (../../../src/lib/helpers.ts:129:16)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:611:24)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token-code-verifier.3')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async Object.getItem (../../src/cookies.ts:326:27)
+    at async getItemAsync (../../../src/lib/helpers.ts:129:16)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:611:24)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token-code-verifier.4')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async Object.getItem (../../src/cookies.ts:326:27)
+    at async getItemAsync (../../../src/lib/helpers.ts:129:16)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:611:24)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at getAll (../../src/cookies.ts:89:51)
+    at applyServerStorage (../../src/cookies.ts:421:27)
+    at Object.callback (../../src/createServerClient.ts:197:8)
+    at <unknown> (../../src/GoTrueClient.ts:2041:18)
+    at Array.map (<anonymous>)
+    at SupabaseAuthClient._notifyAllSubscribers (../../src/GoTrueClient.ts:2039:69)
+    at SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:640:19)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token.0')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async applyServerStorage (../../src/cookies.ts:421:21)
+    at async Object.callback (../../src/createServerClient.ts:196:6)
+    at async (../../src/GoTrueClient.ts:2041:10)
+    at async SupabaseAuthClient._notifyAllSubscribers (../../src/GoTrueClient.ts:2047:6)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:640:8)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token.1')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async applyServerStorage (../../src/cookies.ts:421:21)
+    at async Object.callback (../../src/createServerClient.ts:196:6)
+    at async (../../src/GoTrueClient.ts:2041:10)
+    at async SupabaseAuthClient._notifyAllSubscribers (../../src/GoTrueClient.ts:2047:6)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:640:8)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token.2')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async applyServerStorage (../../src/cookies.ts:421:21)
+    at async Object.callback (../../src/createServerClient.ts:196:6)
+    at async (../../src/GoTrueClient.ts:2041:10)
+    at async SupabaseAuthClient._notifyAllSubscribers (../../src/GoTrueClient.ts:2047:6)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:640:8)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token.3')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async applyServerStorage (../../src/cookies.ts:421:21)
+    at async Object.callback (../../src/createServerClient.ts:196:6)
+    at async (../../src/GoTrueClient.ts:2041:10)
+    at async SupabaseAuthClient._notifyAllSubscribers (../../src/GoTrueClient.ts:2047:6)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:640:8)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token.4')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async applyServerStorage (../../src/cookies.ts:421:21)
+    at async Object.callback (../../src/createServerClient.ts:196:6)
+    at async (../../src/GoTrueClient.ts:2041:10)
+    at async SupabaseAuthClient._notifyAllSubscribers (../../src/GoTrueClient.ts:2047:6)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:640:8)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token-code-verifier')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async applyServerStorage (../../src/cookies.ts:421:21)
+    at async Object.callback (../../src/createServerClient.ts:196:6)
+    at async (../../src/GoTrueClient.ts:2041:10)
+    at async SupabaseAuthClient._notifyAllSubscribers (../../src/GoTrueClient.ts:2047:6)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:640:8)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token-code-verifier.0')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async applyServerStorage (../../src/cookies.ts:421:21)
+    at async Object.callback (../../src/createServerClient.ts:196:6)
+    at async (../../src/GoTrueClient.ts:2041:10)
+    at async SupabaseAuthClient._notifyAllSubscribers (../../src/GoTrueClient.ts:2047:6)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:640:8)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token-code-verifier.1')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async applyServerStorage (../../src/cookies.ts:421:21)
+    at async Object.callback (../../src/createServerClient.ts:196:6)
+    at async (../../src/GoTrueClient.ts:2041:10)
+    at async SupabaseAuthClient._notifyAllSubscribers (../../src/GoTrueClient.ts:2047:6)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:640:8)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token-code-verifier.2')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async applyServerStorage (../../src/cookies.ts:421:21)
+    at async Object.callback (../../src/createServerClient.ts:196:6)
+    at async (../../src/GoTrueClient.ts:2041:10)
+    at async SupabaseAuthClient._notifyAllSubscribers (../../src/GoTrueClient.ts:2047:6)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:640:8)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token-code-verifier.3')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async applyServerStorage (../../src/cookies.ts:421:21)
+    at async Object.callback (../../src/createServerClient.ts:196:6)
+    at async (../../src/GoTrueClient.ts:2041:10)
+    at async SupabaseAuthClient._notifyAllSubscribers (../../src/GoTrueClient.ts:2047:6)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:640:8)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().get('sb-rkdbnqarrfilkqymbpdx-auth-token-code-verifier.4')`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.get (lib/supabase-server.ts:13:29)
+    at getWithHints (../../src/cookies.ts:75:38)
+    at async getAll (../../src/cookies.ts:89:44)
+    at async applyServerStorage (../../src/cookies.ts:421:21)
+    at async Object.callback (../../src/createServerClient.ts:196:6)
+    at async (../../src/GoTrueClient.ts:2041:10)
+    at async SupabaseAuthClient._notifyAllSubscribers (../../src/GoTrueClient.ts:2047:6)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:640:8)
+    at async (../../src/GoTrueClient.ts:973:17)
+  11 |       cookies: {
+  12 |         get(name: string) {
+> 13 |           return cookieStore.get(name)?.value
+     |                             ^
+  14 |         },
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+Error: Route "/auth/callback" used `cookies().set('sb-rkdbnqarrfilkqymbpdx-auth-token-code-verifier', ...)`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.remove (lib/supabase-server.ts:26:24)
+    at setAll (../../src/cookies.ts:99:28)
+    at applyServerStorage (../../src/cookies.ts:471:8)
+    at async Object.callback (../../src/createServerClient.ts:196:6)
+    at async (../../src/GoTrueClient.ts:2041:10)
+    at async SupabaseAuthClient._notifyAllSubscribers (../../src/GoTrueClient.ts:2047:6)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:640:8)
+    at async (../../src/GoTrueClient.ts:973:17)
+  24 |         remove(name: string, options: CookieOptions) {
+  25 |           try {
+> 26 |             cookieStore.set({ name, value: '', ...options })
+     |                        ^
+  27 |           } catch (error) {
+  28 |             // Siehe oben
+  29 |           }
+Error: Route "/auth/callback" used `cookies().set('sb-rkdbnqarrfilkqymbpdx-auth-token.0', ...)`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.set (lib/supabase-server.ts:17:24)
+    at setAll (../../src/cookies.ts:97:28)
+    at async applyServerStorage (../../src/cookies.ts:471:2)
+    at async Object.callback (../../src/createServerClient.ts:196:6)
+    at async (../../src/GoTrueClient.ts:2041:10)
+    at async SupabaseAuthClient._notifyAllSubscribers (../../src/GoTrueClient.ts:2047:6)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:640:8)
+    at async (../../src/GoTrueClient.ts:973:17)
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+> 17 |             cookieStore.set({ name, value, ...options })
+     |                        ^
+  18 |           } catch (error) {
+  19 |             // Der `set` method wird für Server Components aufgerufen,
+  20 |             // aber das Setzen von Cookies funktioniert dort nicht.
+Error: Route "/auth/callback" used `cookies().set('sb-rkdbnqarrfilkqymbpdx-auth-token.1', ...)`. `cookies()` should be awaited before using its value. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Object.set (lib/supabase-server.ts:17:24)
+    at setAll (../../src/cookies.ts:97:28)
+    at async applyServerStorage (../../src/cookies.ts:471:2)
+    at async Object.callback (../../src/createServerClient.ts:196:6)
+    at async (../../src/GoTrueClient.ts:2041:10)
+    at async SupabaseAuthClient._notifyAllSubscribers (../../src/GoTrueClient.ts:2047:6)
+    at async SupabaseAuthClient._exchangeCodeForSession (../../src/GoTrueClient.ts:640:8)
+    at async (../../src/GoTrueClient.ts:973:17)
+  15 |         set(name: string, value: string, options: CookieOptions) {
+  16 |           try {
+> 17 |             cookieStore.set({ name, value, ...options })
+     |                        ^
+  18 |           } catch (error) {
+  19 |             // Der `set` method wird für Server Components aufgerufen,
+  20 |             // aber das Setzen von Cookies funktioniert dort nicht.
+User authenticated: {
+  id: '405a1477-69cf-45ae-984d-cca3dccf3391',
+  email: 'beni.nightmile@gmail.com',
+  name: 'Beni Nightmile',
+  avatar: 'https://lh3.googleusercontent.com/a/ACg8ocL3kfcswI8xTxxlDasdeywAk_5ITrCmRDCW5sHSA6XHTI--H_4=s96-c',
+  mockTools: [ 'kibubot' ]
+}
+ GET /auth/callback?code=8587da9b-0ba1-4494-9a97-33a59fb681cf 307 in 1249ms
+ ○ Compiling /d/[departmentSlug] ...
+ ✓ Compiled /d/[departmentSlug] in 589ms
+ GET /d/marketing 200 in 1178ms
+ GET /favicon.ico?favicon.45db1c09.ico 200 in 258ms
+[?25h

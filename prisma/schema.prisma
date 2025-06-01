@@ -17,4 +17,219 @@ datasource db {
   // directUrl = env("DIRECT_URL")
 }
 
-// Die Datenmodelle werden hier später gemäß @Core_C definiert
+// ==========================================
+// RACCOOVA ZENTRALE USER-VERWALTUNG
+// ==========================================
+
+// Zentraler RACCOOVA User (Multi-Tool-fähig)
+// Dieser User ist das Herzstück der RACCOOVA-Plattform
+model RACCOOVAUser {
+  id                    String                   @id // Supabase Auth User ID - direkte Verknüpfung mit Supabase Auth
+  email                 String                   @unique
+  raccoovaRole          RACCOOVARole             @default(USER) // Plattform-weite Rolle
+  tools                 String[]                 @default(["kibubot"]) // Array der Tools, auf die der User Zugriff hat
+  createdAt             DateTime                 @default(now())
+  updatedAt             DateTime                 @updatedAt
+  
+  // Kibubot-spezifische Relationen
+  // Jedes Tool in RACCOOVA kann eigene Relationen zum User haben
+  ownedOrganizations    Kibu_Organization[]      @relation("OrganizationOwner")
+  organizationMembers   Kibu_OrganizationMember[]
+  auditLogs             Kibu_AuditLog[]
+  assignedTasks         Kibu_Task[]
+}
+
+// RACCOOVA-weite Rollen
+// Diese Rollen gelten plattformübergreifend für alle Tools
+enum RACCOOVARole {
+  USER              // Standard-User mit Tool-spezifischen Berechtigungen
+  PLATFORM_ADMIN    // Kann alle Tools verwalten und neue User anlegen
+}
+
+// Organisation (Mandant)
+model Kibu_Organization {
+  id                    String                   @id @default(uuid())
+  name                  String
+  ownerId               String
+  createdAt             DateTime                 @default(now())
+  updatedAt             DateTime                 @updatedAt
+  
+  // Relationen
+  owner                 RACCOOVAUser             @relation("OrganizationOwner", fields: [ownerId], references: [id])
+  members               Kibu_OrganizationMember[]
+  departments           Kibu_DepartmentConfig[]
+  auditLogs             Kibu_AuditLog[]
+  contacts              Kibu_Contact[]
+  tasks                 Kibu_Task[]
+  documents             Kibu_Document[]
+  
+  @@index([ownerId])
+}
+
+// Organisation-Mitglied (Nutzer-zu-Organisation Zuordnung mit Rolle)
+model Kibu_OrganizationMember {
+  id                    String                   @id @default(uuid())
+  role                  OrganizationRole         @default(MEMBER)
+  userId                String
+  organizationId        String
+  createdAt             DateTime                 @default(now())
+  updatedAt             DateTime                 @updatedAt
+  
+  // Relationen
+  user                  RACCOOVAUser             @relation(fields: [userId], references: [id])
+  organization          Kibu_Organization        @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, organizationId])
+  @@index([organizationId])
+  @@index([userId])
+}
+
+// Rolle-Enum für Organisation
+enum OrganizationRole {
+  ADMIN
+  MEMBER
+}
+
+// Audit-Log für Nachvollziehbarkeit
+model Kibu_AuditLog {
+  id                    String                   @id @default(uuid())
+  timestamp             DateTime                 @default(now())
+  userId                String
+  organizationId        String
+  actionType            AuditActionType
+  entityType            String                   // z.B. "Area", "Widget", "Contact"
+  entityId              String?                  // ID der betroffenen Entität
+  details               Json?                    // Zusätzliche Details zur Aktion
+  
+  // Relationen
+  user                  RACCOOVAUser             @relation(fields: [userId], references: [id])
+  organization          Kibu_Organization        @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  
+  @@index([organizationId, timestamp])
+  @@index([userId])
+  @@index([entityType, entityId])
+}
+
+// Audit-Action-Type Enum
+enum AuditActionType {
+  CREATE
+  UPDATE
+  DELETE
+  VIEW
+  EXPORT
+  IMPORT
+}
+
+// Department-Konfiguration
+// Departments sind die oberste Organisationsebene in Kibubot
+model Kibu_DepartmentConfig {
+  id                    String                   @id @default(uuid())
+  organizationId        String
+  name                  String
+  slug                  String                   // URL-freundlicher Identifier
+  icon                  String?                  // Icon-Name für UI (z.B. "Building", "Users")
+  orderIndex            Int                      @default(0) // Reihenfolge in der Navigation
+  createdAt             DateTime                 @default(now())
+  updatedAt             DateTime                 @updatedAt
+  
+  // Relationen
+  organization          Kibu_Organization        @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  areas                 Kibu_AreaConfig[]
+  
+  @@unique([organizationId, slug])
+  @@index([organizationId])
+}
+
+// Area-Konfiguration (Seite/Dashboard innerhalb eines Departments)
+// Areas sind die Widget-Container, in denen User ihre Business-Logik aufbauen
+model Kibu_AreaConfig {
+  id                    String                   @id @default(uuid())
+  departmentId          String
+  name                  String
+  slug                  String                   // URL-freundlicher Identifier
+  layoutConfig          Json                     @default("{}") // Grid-Layout-Konfiguration (columns, rowHeight, etc.)
+  widgets               Json                     @default("[]") // Array von WidgetInstanceConfig mit Position und Konfiguration
+  createdAt             DateTime                 @default(now())
+  updatedAt             DateTime                 @updatedAt
+  
+  // Relationen
+  department            Kibu_DepartmentConfig    @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  
+  @@unique([departmentId, slug])
+  @@index([departmentId])
+}
+
+// ==========================================
+// BUSINESS-OBJEKT-MODELLE (MVP)
+// ==========================================
+
+// Kontakt/Lead/Kunde
+model Kibu_Contact {
+  id                    String                   @id @default(uuid())
+  organizationId        String
+  name                  String
+  email                 String?
+  phone                 String?
+  address               Json?                    // {street, city, postalCode, country}
+  type                  String                   @default("Lead") // "Lead", "Kunde", "Partner", etc.
+  notes                 String?                  @db.Text
+  customFields          Json?                    // Flexible zusätzliche Felder
+  createdAt             DateTime                 @default(now())
+  updatedAt             DateTime                 @updatedAt
+  
+  // Relationen
+  organization          Kibu_Organization        @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  tasks                 Kibu_Task[]
+  documents             Kibu_Document[]
+  
+  @@index([organizationId])
+  @@index([email])
+}
+
+// Aufgabe/Task
+model Kibu_Task {
+  id                    String                   @id @default(uuid())
+  organizationId        String
+  title                 String
+  description           String?                  @db.Text
+  status                String                   @default("open") // "open", "in_progress", "done", "cancelled"
+  dueDate               DateTime?
+  assigneeId            String?
+  relatedContactId      String?
+  customFields          Json?                    // Flexible zusätzliche Felder
+  createdAt             DateTime                 @default(now())
+  updatedAt             DateTime                 @updatedAt
+  
+  // Relationen
+  organization          Kibu_Organization        @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  assignee              RACCOOVAUser?            @relation(fields: [assigneeId], references: [id])
+  relatedContact        Kibu_Contact?            @relation(fields: [relatedContactId], references: [id])
+  
+  @@index([organizationId])
+  @@index([assigneeId])
+  @@index([status])
+  @@index([dueDate])
+}
+
+// Dokument (Rechnung, Social Post Draft, etc.)
+model Kibu_Document {
+  id                    String                   @id @default(uuid())
+  organizationId        String
+  title                 String
+  content               String?                  @db.Text // Markdown-Inhalt
+  type                  String                   @default("document") // "invoice", "social_post", "contract", etc.
+  status                String                   @default("draft") // "draft", "published", "archived"
+  fileUrl               String?                  // URL zu Datei in Supabase Storage
+  relatedContactId      String?
+  customFields          Json?                    // Flexible zusätzliche Felder
+  createdAt             DateTime                 @default(now())
+  updatedAt             DateTime                 @updatedAt
+  
+  // Relationen
+  organization          Kibu_Organization        @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  relatedContact        Kibu_Contact?            @relation(fields: [relatedContactId], references: [id])
+  
+  @@index([organizationId])
+  @@index([type])
+  @@index([status])
+}
